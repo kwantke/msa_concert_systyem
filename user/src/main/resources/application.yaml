@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:33306/dev_concert
+    username: dev_user
+    password: dev_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none # Hibernate? DDL ???? ??
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        jdbc.time_zone: Asia/Seoul
+        connection.characterEncoding: UTF-8
+        connection.useUnicode: true
+        connection.collation: utf8mb4_unicode_ci
+        format_sql: true  # SQL ?? ?? ??
