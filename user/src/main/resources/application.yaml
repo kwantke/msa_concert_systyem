@@ -21,3 +21,7 @@ spring:
         connection.useUnicode: true
         connection.collation: utf8mb4_unicode_ci
         format_sql: true  # SQL ?? ?? ??
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379   # ? ??? ?? ??
