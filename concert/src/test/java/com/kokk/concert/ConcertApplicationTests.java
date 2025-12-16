@@ -1,10 +1,10 @@
-package com.kokk.reservation;
+package com.kokk.concert;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReservationApplicationTests {
+class ConcertApplicationTests {
 
   @Test
   void contextLoads() {
