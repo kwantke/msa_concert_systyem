@@ -4,6 +4,7 @@ import com.kokk.user.application.port.out.UserRepositoryPort;
 import com.kokk.user.domain.model.entity.User;
 import com.kokk.user.infrastructure.db.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 @RequiredArgsConstructor
@@ -14,5 +15,11 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
   @Override
   public User save(User user) {
     return userRepository.save(user);
+  }
+
+  @Override
+  public User findByUserId(String userId) {
+    return userRepository.findByUserId(userId)
+            .orElseThrow(() -> new UsernameNotFoundException("not found"));
   }
 }

@@ -1,11 +1,19 @@
 ### 회원가입
 POST http://localhost:8081/api/v1/auth/join
 Content-Type: application/json
-Authorization: test
 
 {
   "userId":"test01",
   "name":"테스터01",
   "password": "test01",
   "email": "test@naver.com"
+}
+
+### 로그인
+POST http://localhost:8081/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "userId":"test01",
+  "password": "test01"
 }

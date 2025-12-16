@@ -7,13 +7,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
 @Entity
-public class User extends AuditingFields {
+public class User extends AuditingFields{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +53,5 @@ public class User extends AuditingFields {
             .email(email)
             .build();
   }
+
 }

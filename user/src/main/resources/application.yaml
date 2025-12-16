@@ -11,7 +11,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none # Hibernate? DDL ???? ??
+      ddl-auto: none
     show-sql: false
     properties:
       hibernate:
@@ -20,8 +20,21 @@ spring:
         connection.characterEncoding: UTF-8
         connection.useUnicode: true
         connection.collation: utf8mb4_unicode_ci
-        format_sql: true  # SQL ?? ?? ??
+        format_sql: true
   data:
     redis:
       host: 127.0.0.1
-      port: 6379   # ? ??? ?? ??
+      port: 6379
+
+
+jwt:
+  issuer: "concert"
+  access-exp-min: 150
+  refresh-exp-days: 14
+  secret: "this-is-a-very-long-256bit-secret-key-at-least-32-bytes-please-keep-going-........"
+  cookie:
+    refresh-name: "RFT"
+    domain: "localhost"
+    secure: true
+    http-only: true
+    same-site: "Strict"
