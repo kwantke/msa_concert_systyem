@@ -1,0 +1,9 @@
+### 좌석 예약 요청 (성공 케이스)
+POST http://localhost:8082/api/v1/concerts/session/reservations
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ZmNlMDdjYy02NDczLTQwMGUtODdkYi1mNTM0ZWU3OWE1YmQiLCJzdWIiOiJ0ZXN0MDEiLCJ1c3IiOnsibmFtZSI6Iu2FjOyKpO2EsDAxIiwidXNlcklkIjoidGVzdDAxIn0sImlzcyI6ImNvbmNlcnQiLCJpYXQiOjE3NjU4NzQ2MTQsImV4cCI6MTc2NTg4MzYxNH0.wC3ZlX-kBn-ou8ENYKY_vkzyaNKJbbFYy3KPYJd8xiE
+
+{
+  "concertSessionId": 1,
+  "seatIds": [1,2]
+}

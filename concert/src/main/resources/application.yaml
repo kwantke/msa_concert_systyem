@@ -1,0 +1,59 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:33306/dev_concert
+    username: dev_user
+    password: dev_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none # Hibernate가 DDL 실행하지 않음
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        jdbc.time_zone: Asia/Seoul
+        connection.characterEncoding: UTF-8
+        connection.useUnicode: true
+        connection.collation: utf8mb4_unicode_ci
+        format_sql: true  # SQL 보기 좋게 출력
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    properties:
+      spring.json.add.type.headers: true # 타입 헤더를 넣어 컨슈머가 타입을 알아낼 수 있게 함(기본값 true)
+    consumer:
+      group-id: concert-consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest # 토픽을 읽을때 가장 예전 offset부터 읽기
+      enable-auto-commit: false # consumer에서 응답 처리를 수동 ack 모드 사용 (ack.acknowledge() 필요)
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.json.trusted.packages: "com.kokk.infrastructure.concert.adapter.messaging,*" # @KafkaListener 이벤트 클래스가 들어있는 패키지를 신뢰 패키지로 등록
+    topic:
+      reserve: concert-reserve
+    listener:
+      ack-mode: MANUAL # 배치 처리 안 쓰면 기본 그대로
+
+jwt:
+  issuer: "concert"
+  access-exp-min: 150
+  refresh-exp-days: 14
+  secret: "this-is-a-very-long-256bit-secret-key-at-least-32-bytes-please-keep-going-........"
+  cookie:
+    refresh-name: "RFT"
+    domain: "localhost"
+    secure: true
+    http-only: true
+    same-site: "Strict"

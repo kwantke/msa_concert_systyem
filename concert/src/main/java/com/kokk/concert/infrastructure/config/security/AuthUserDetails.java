@@ -1,6 +1,8 @@
-package com.kokk.user.infrastructure.config.security;
+package com.kokk.concert.infrastructure.config.security;
 
-import com.kokk.user.domain.model.entity.User;
+
+
+import com.kokk.concert.domain.model.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
