@@ -1,5 +1,6 @@
 package com.kokk.concert.domain.model.entity;
 
+import com.kokk.concert.application.dto.request.ReservationRequestDto;
 import com.kokk.concert.domain.converter.ReservationStatusConverter;
 import com.kokk.concert.domain.enums.ReservationStatus;
 import com.kokk.concert.domain.model.base.AuditingFields;
@@ -48,6 +49,8 @@ public class Reservation extends AuditingFields {
             .build();
   }
 
+
+
   public boolean isTemporaryReservation() {
     return this.status == ReservationStatus.TEMPORARY_RESERVED;
 
@@ -56,7 +59,11 @@ public class Reservation extends AuditingFields {
   public void updateReservationStatus() {
     this.status = ReservationStatus.CONFIRMED;
   }
-  public void updateReservationStatusCanceled() {
-    this.status = ReservationStatus.CANCELED;
+  public void updateReservationStatusSystemCanceled() {
+    this.status = ReservationStatus.SYSTEM_CANCELED;
+  }
+
+  public void updateReservationSuccessStatus() {
+    this.status = ReservationStatus.CONFIRMED;
   }
 }

@@ -29,7 +29,7 @@ spring:
 
 jwt:
   issuer: "concert"
-  access-exp-min: 150
+  access-exp-min: 1500
   refresh-exp-days: 14
   secret: "this-is-a-very-long-256bit-secret-key-at-least-32-bytes-please-keep-going-........"
   cookie:

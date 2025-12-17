@@ -43,6 +43,8 @@ spring:
         spring.json.trusted.packages: "com.kokk.infrastructure.concert.adapter.messaging,*" # @KafkaListener 이벤트 클래스가 들어있는 패키지를 신뢰 패키지로 등록
     topic:
       reserve: concert-reserve
+      payment-success-callback: payment-success
+      payment-fail-callback: payment-fail
     listener:
       ack-mode: MANUAL # 배치 처리 안 쓰면 기본 그대로
 

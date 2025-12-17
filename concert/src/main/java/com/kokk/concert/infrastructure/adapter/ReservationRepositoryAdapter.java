@@ -3,6 +3,8 @@ package com.kokk.concert.infrastructure.adapter;
 
 import com.kokk.concert.application.port.out.ReservationRepositoryPort;
 import com.kokk.concert.domain.enums.ReservationStatus;
+import com.kokk.concert.domain.exception.ConcertErrorCode;
+import com.kokk.concert.domain.exception.CoreException;
 import com.kokk.concert.domain.model.entity.Reservation;
 import com.kokk.concert.domain.provider.time.TimeProvider;
 import com.kokk.concert.infrastructure.db.ReservationRepository;
@@ -39,5 +41,11 @@ public class ReservationRepositoryAdapter implements ReservationRepositoryPort {
             ReservationStatus.TEMPORARY_RESERVED,
             expirationTime
     );
+  }
+
+  @Override
+  public Reservation getReservation(Long reservationId) {
+    return reservationRepository.findById(reservationId)
+            .orElseThrow(() -> new CoreException(ConcertErrorCode.INVALID_RESERVATION));
   }
 }

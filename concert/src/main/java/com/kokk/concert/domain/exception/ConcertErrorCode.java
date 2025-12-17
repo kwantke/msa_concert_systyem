@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public enum ConcertErrorCode implements ErrorCode {
   // 예매 관련 에러 코드
   UNAVAILABLE_CONCERT_SESSION_SEAT("예약 가능한 좌석이 아닙니다.", HttpStatus.BAD_REQUEST),
-  INVALID_OUTBOX_STATUS("아웃박스 상태는 필수 값입니다.", HttpStatus.BAD_REQUEST),
+  INVALID_OUTBOX_STATUS("결제아웃박스 상태는 필수 값입니다.", HttpStatus.BAD_REQUEST),
   INVALID_RESERVATION_STATUS("예약 상태는 필수 값입니다.", HttpStatus.BAD_REQUEST),
   INVALID_RESERVATION("예약 정보를 찾을 수 없습니다.", HttpStatus.BAD_REQUEST),
   INVALID_RESERVATION_TEMPORARY_STATUS("예약 상태가 임시 예약 상태가 아닙니다.", HttpStatus.BAD_REQUEST),

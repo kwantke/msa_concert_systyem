@@ -7,6 +7,8 @@ import com.kokk.payment.infrastructure.db.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Repository
 public class PaymentRepositoryAdapter implements PaymentRepositoryPort {
@@ -16,6 +18,11 @@ public class PaymentRepositoryAdapter implements PaymentRepositoryPort {
   @Override
   public Payment save(Payment payment) {
     return paymentRepository.save(payment);
+  }
+
+  @Override
+  public Optional<Payment> findByReservationId(Long reservationId) {
+    return paymentRepository.findByReservationId(reservationId);
   }
 
 }

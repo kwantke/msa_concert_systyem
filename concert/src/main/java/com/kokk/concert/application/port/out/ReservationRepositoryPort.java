@@ -13,4 +13,6 @@ public interface ReservationRepositoryPort {
   Optional<Reservation> findById(Long reservationId);
 
   List<Reservation> findByTemporaryReservationToBeExpired(int minutes);
+
+  Reservation getReservation(Long aLong);
 }
