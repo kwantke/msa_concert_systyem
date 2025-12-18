@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.kokk'
 version = '0.0.1-SNAPSHOT'
-description = 'payment'
+description = 'concert'
 
 java {
   toolchain {
@@ -18,6 +18,14 @@ configurations {
   compileOnly {
     extendsFrom annotationProcessor
   }
+}
+bootJar {
+  enabled = true
+  archiveFileName = "myapp.jar"
+}
+
+jar {
+  enabled = false   // 보통은 plain jar 필요 없으면 끔
 }
 
 repositories {
@@ -44,6 +52,11 @@ dependencies {
   // Swagger
   implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 
+  // Redis
+  implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+  // Redisson
+  implementation 'org.redisson:redisson-spring-boot-starter:3.27.0'
 
   // Validation
   implementation "org.springframework.boot:spring-boot-starter-validation"
