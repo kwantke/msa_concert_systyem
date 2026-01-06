@@ -13,14 +13,7 @@ import java.util.Optional;
 public class TokenStore {
 
   private final StringRedisTemplate redis;
-
   private static final String RT_KEY = "rt:%s";
-
-
-  private final JwtProvider props;
-
-  public record TokenPair(String accessToken, String refreshToken) {
-  }
 
 
   public void saveRefreshToken(String userId, String refreshToken, Duration ttl) {
