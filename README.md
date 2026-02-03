@@ -33,7 +33,7 @@ Kafka: payment-success / payment-fail
     - Outbox에 SUCCESS_PAYMENT or SYSTEM_CANCEL_PAYMENT 업데이트
 ```
 
-- **Saga**: 얘약 -> 결제 -> 보상
+- **Saga**: 예약 -> 결제 -> 보상
 - **Outbox**: 각 단계의 이벤트 저장
 
 <br>
